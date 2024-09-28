@@ -11,7 +11,8 @@ class ConjuntosDifusos {
 
     def grande(d: Int , e: Int): ConjDifuso = {
         def mma(n: Int): Double = {
-            math.pow((n.toDouble/(n+d).toDouble), e)
+
+            math.floor((math.pow((n.toDouble/(n+d).toDouble), e))*10) / 10
         }
         mma
     }

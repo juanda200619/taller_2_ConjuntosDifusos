@@ -11,11 +11,11 @@ class ConjuntosDifusosTest extends AnyFunSuite {
     // Test funcion pertenece
 
   test("Pertenece 10 en grande(2,2)") {
-    assert(objConjuntosDifusos.pertenece(10, objConjuntosDifusos.grande(2, 2)) == 0.6944444444444445)
+    assert(objConjuntosDifusos.pertenece(10, objConjuntosDifusos.grande(2, 2)) == 0.6)
   }
 
   test("Pertenece 10 en complemento(grande(2,2))") {
-    assert(objConjuntosDifusos.pertenece(10, objConjuntosDifusos.complemento(objConjuntosDifusos.grande(2, 2))) ==  0.30555555555555547)
+    assert(objConjuntosDifusos.pertenece(10, objConjuntosDifusos.complemento(objConjuntosDifusos.grande(2, 2))) ==  0.4)
   }
 
 
