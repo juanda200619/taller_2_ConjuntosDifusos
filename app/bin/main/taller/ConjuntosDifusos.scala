@@ -18,19 +18,32 @@ class ConjuntosDifusos {
     }
 
     def complemento(c: ConjDifuso) : ConjDifuso = {
-        def comp(n : Int) : Double ={
+        def comp(n : Int) : Double = {
             1 - c(n)
         }
         comp
     }
 
-    def union(cd1: ConjDifuso , cd2: ConjDifuso) : Unit = {
-    // Implementaci´on de la funci´on union, debe retornar un ConjDifuso
+
+    def union(cd1: ConjDifuso , cd2: ConjDifuso) : ConjDifuso = {
+        // Función interna que calcula la unión de dos conjuntos difusos para un elemento dado
+        def unionF(n: Int): Double = {
+            // La pertenencia del elemento n en la unión es el máximo grado de sus pertenencias en los dos conjuntos
+            math.max(cd1(n), cd2(n))
+        }
+        // Retornamos la función interna como el resultado de la unión
+        unionF
     }
 
-    def interseccion (cd1: ConjDifuso , cd2: ConjDifuso) : Unit = {
-    // Implementaci´on de la funci´on interseccion, debe retornar un ConjDifuso
-
+ 
+    def interseccion (cd1: ConjDifuso , cd2: ConjDifuso) : ConjDifuso = {
+        // Función interna que calcula la intersección de dos conjuntos difusos para un elemento dado
+        def interseccionF(n: Int): Double = {
+            // La pertenencia del elemento n en la intersección es el mínimo grado de sus pertenencias en los dos conjuntos
+            math.min(cd1(n), cd2(n))
+        }
+        // Retornamos la función interna que proporciona el nuevo conjunto difuso correspondiente a la intersección
+        interseccionF
     }
 
     def inclusion (cd1: ConjDifuso , cd2: ConjDifuso) : Boolean = {
@@ -47,7 +60,11 @@ class ConjuntosDifusos {
     
 
     def igualdad(cd1: ConjDifuso , cd2: ConjDifuso) : Unit = {
-    // Implementaci´on de la funci´on igualdad, debe retornar un ConjDifuso
+    // Implementacion de la funcion igualdad, debe retornar un ConjDifuso
     }
 
+    // Función para generar una cadena con la pertenencia de cada elemento de un rango en un conjunto difuso
+    def imprimirConjunto(conjunto: ConjDifuso, rango: Range): String = {
+        rango.map(n => s"Elemento $n: ${pertenece(n, conjunto)}").mkString("\n")
+    }
 }

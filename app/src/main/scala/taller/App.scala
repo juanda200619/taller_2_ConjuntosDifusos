@@ -5,10 +5,25 @@ package taller
 
 object App {
   def main(args: Array[String]): Unit = {
-    val a = new ConjuntosDifusos()
-    val b = a.grande(2,2)
-    val c = a.complemento(b)
-    println(a.pertenece(10, b))
-    println(a.pertenece(10,c))
+    val conjuntoDifuso = new ConjuntosDifusos()
+
+    val rango = 0 to 10
+
+    // Definimos los conjuntos difusos
+    val b = conjuntoDifuso.grande(2, 2)
+    val c = conjuntoDifuso.complemento(b)
+    println(s"Pertenencia de 10 en b: ${conjuntoDifuso.pertenece(10, b)}")
+    println(s"Pertenencia de 10 en c: ${conjuntoDifuso.pertenece(10, c)}")
+    
+    // Realizamos la intersección y la unión
+    val d = conjuntoDifuso.interseccion(b, c)
+    val e = conjuntoDifuso.union(b, c)
+
+    // Imprimimos los resultados
+    println("\nIntersección (b ∩ c):")
+    println(conjuntoDifuso.imprimirConjunto(d, rango))
+
+    println("\nUnión (b U c):")
+    println(conjuntoDifuso.imprimirConjunto(e, rango))     
   }
 }
