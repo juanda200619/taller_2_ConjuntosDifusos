@@ -10,7 +10,7 @@ object App {
     val rango = 0 to 10
 
     // Definimos los conjuntos difusos
-    val b = conjuntoDifuso.grande(2, 2)
+    val b = conjuntoDifuso.grande(1, 25)
     val c = conjuntoDifuso.complemento(b)
     println(s"Pertenencia de 10 en b: ${conjuntoDifuso.pertenece(10, b)}")
     println(s"Pertenencia de 10 en c: ${conjuntoDifuso.pertenece(10, c)}")
@@ -24,6 +24,9 @@ object App {
     println(conjuntoDifuso.imprimirConjunto(d, rango))
 
     println("\nUnión (b U c):")
-    println(conjuntoDifuso.imprimirConjunto(e, rango))     
+    println(conjuntoDifuso.imprimirConjunto(e, rango))
+
+    val f = conjuntoDifuso.grande(1,15) 
+    println(conjuntoDifuso.imprimirConjunto(conjuntoDifuso.interseccion(b,f), 1 to 35))
   }
 }

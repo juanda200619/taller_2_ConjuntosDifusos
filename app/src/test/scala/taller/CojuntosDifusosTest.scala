@@ -28,4 +28,33 @@ class ConjuntosDifusosTest extends AnyFunSuite {
   test("Inclusion grande(2,2) en complemento(grande(2,2))") {
     assert(!objConjuntosDifusos.inclusion(objConjuntosDifusos.grande(2, 2), objConjuntosDifusos.complemento(objConjuntosDifusos.grande(2, 2))))
   }
+
+  // Tests funcion union
+  test("Union grande(2,2) y grande(9,18)") {
+    val union = objConjuntosDifusos.union(objConjuntosDifusos.grande(2, 2), objConjuntosDifusos.grande(9, 18))
+    assert(union(10) == 0.6)
+  }
+
+  test("Union grande(1,3) y grande(3,6)"){
+    val union = objConjuntosDifusos.union(objConjuntosDifusos.grande(1, 3), objConjuntosDifusos.grande(3, 6))
+    assert(union(10) == 0.7)
+  }
+
+  // Tests funcion intersección
+  test("Interseccion grande(2,2) y grande(9,18)") {
+    val interseccion = objConjuntosDifusos.interseccion(objConjuntosDifusos.grande(2, 2), objConjuntosDifusos.grande(9, 18))
+    assert(interseccion(10) == 0.0) // El mínimo debe ser 0.0 ya que grande(9, 18) tiene 0.0
+  }
+
+  test("Intersección grande(1, 5) y grande(3,5)") {
+    val interseccion = objConjuntosDifusos.interseccion(objConjuntosDifusos.grande(1, 5), objConjuntosDifusos.grande(3, 5))
+    assert(interseccion(6) == 0.1) // El mínimo correcto
+  }
+
+  test("Intersección grande(1,25) y grande(1,15)") {
+      val interseccion = objConjuntosDifusos.interseccion(objConjuntosDifusos.grande(1, 25), objConjuntosDifusos.grande(1,15))
+      assert(interseccion(26) == 0.3) // El mínimo correcto
+  }
+
+
 }
