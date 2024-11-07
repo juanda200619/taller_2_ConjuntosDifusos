@@ -28,5 +28,9 @@ object App {
 
     val f = conjuntoDifuso.grande(1,15) 
     println(conjuntoDifuso.imprimirConjunto(conjuntoDifuso.interseccion(b,f), 1 to 35))
+
+    // Verificamos la igualdad entre b y f
+    val sonIguales = conjuntoDifuso.igualdad(b, f)
+    println(s"\n¿Son iguales b y f? $sonIguales")
   }
 }

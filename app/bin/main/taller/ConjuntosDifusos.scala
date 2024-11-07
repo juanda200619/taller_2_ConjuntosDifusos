@@ -59,9 +59,10 @@ class ConjuntosDifusos {
     }
     
 
-    def igualdad(cd1: ConjDifuso , cd2: ConjDifuso) : Unit = {
-    // Implementacion de la funcion igualdad, debe retornar un ConjDifuso
+    def igualdad(cd1: ConjDifuso, cd2: ConjDifuso): Boolean = {
+        inclusion(cd1, cd2) && inclusion(cd2, cd1) // Si ambos conjuntos se incluyen mutuamente, son iguales
     }
+
 
     // Función para generar una cadena con la pertenencia de cada elemento de un rango en un conjunto difuso
     def imprimirConjunto(conjunto: ConjDifuso, rango: Range): String = {

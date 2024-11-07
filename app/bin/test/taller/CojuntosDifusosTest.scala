@@ -56,5 +56,18 @@ class ConjuntosDifusosTest extends AnyFunSuite {
       assert(interseccion(26) == 0.3) // El mínimo correcto
   }
 
+  // Tests funcion igualdad
+  test("Igualdad grande(2,2) y grande(2,2)") {
+    assert(objConjuntosDifusos.igualdad(objConjuntosDifusos.grande(2, 2), objConjuntosDifusos.grande(2, 2))) // Deben ser iguales por tanto retorna true
+  }
+
+  test("Igualdad grande(1,3) y grande(3,6)") {
+    assert(!objConjuntosDifusos.igualdad(objConjuntosDifusos.grande(1, 3), objConjuntosDifusos.grande(3, 6))) // No deben ser iguales por tanto retorna false
+  
+  }
+
+  test("Igualdad grande(1,25) y grande(1,15)") {
+    assert(!objConjuntosDifusos.igualdad(objConjuntosDifusos.grande(1, 25), objConjuntosDifusos.grande(1, 15))) // No deben ser iguales por tanto retorna false
+  }
 
 }
